@@ -1,0 +1,24 @@
+name: amnesia
+on: workflow_dispatch # only triggered manually
+
+env:
+  NAME: bastien5967
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    env:
+      COMPANY: new1
+    steps:
+      - name: "Dit bonjour"
+        run: echo "Hi, $NAME from $COMPANY ! Wish you a good $DAY" # read all 3, all 3 are available in this step
+        env:
+          DAY: lundi
+      - name: lundi
+        run: echo "It's $DAY" # does not read variable, declared in another step
+  bye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Dit au revoir"
+        run: echo "Bye $NAME, which cmpany do you work for ? $COMPANY"
+

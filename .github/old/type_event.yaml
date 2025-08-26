@@ -1,0 +1,16 @@
+name: type_event.yaml
+
+on: [pull_request, pull_request_target, pull_request_review , push, fork, workflow_dispatch]
+
+jobs:
+  show:
+    runs-on: ubuntu-latest
+    steps:
+      - name : "show variable"
+        run: echo "The action is $GITHUB_ACTION" # just to be sure...
+      - name : "Dis bonjour"
+        if: ${{github.action != 'push'}}
+        run: echo "This is a push request" # works
+      - name: "Hello you"
+        if: ${{github.action == 'pull_request' || github.action == 'pull_request_target' || github.action == 'pull_request_target'}}
+        run: echo "This is a pull request !" # work

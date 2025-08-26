@@ -1,5 +1,5 @@
 name: hello_world
-on: push
+on: push # each time a git push is done
 jobs:
   hello:
     runs-on: ubuntu-latest

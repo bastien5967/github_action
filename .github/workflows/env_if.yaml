@@ -1,0 +1,17 @@
+name: Hello Sir
+
+on: workflow_dispatch
+
+env:
+  NAME: Daniel
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name : "Dis bonjour"
+        if: ${{env.NAME != 'François'}}
+        run: echo "You are not who I'm searching for" # works
+      - name: "Hello you"
+        if: ${{env.NAME == 'François'}}
+        run: echo "Found you !" # does not work
