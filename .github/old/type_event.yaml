@@ -1,4 +1,4 @@
-name: type_event.yaml
+name: type_event
 
 on: [pull_request, pull_request_target, pull_request_review , push, fork, workflow_dispatch]
 
@@ -8,9 +8,9 @@ jobs:
     steps:
       - name : "show variable"
         run: echo "The action is "github.action # just to be sure...
-      - name : "Dis bonjour"
+      - name : "this is a push"
         if: ${{github.action != 'push'}}
         run: echo "This is a push request" # works
-      - name: "Hello you"
+      - name: "this is a pull"
         if: ${{github.action == 'pull_request' || github.action == 'pull_request_target' || github.action == 'pull_request_target'}}
         run: echo "This is a pull request !" # work
