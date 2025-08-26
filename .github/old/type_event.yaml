@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name : "show variable"
-        run: echo "The action is $GITHUB_ACTION" # just to be sure...
+        run: echo "The action is "github.action # just to be sure...
       - name : "Dis bonjour"
         if: ${{github.action != 'push'}}
         run: echo "This is a push request" # works
