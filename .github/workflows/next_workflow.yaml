@@ -2,10 +2,11 @@ name: next_workflow.yaml
 
 on:
   workflow_run:
-    workflows: [build, test]
+    workflows: [Merge PR]
     types: [completed]
 jobs:
-  job2:
+  follow-up:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "I'm only supposed to launch if the last one worked fine"
+      - name: message
+        run: echo "I'm only supposed to launch if the last one worked fine"

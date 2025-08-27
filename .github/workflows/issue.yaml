@@ -1,12 +1,13 @@
 name: issue.yaml
 
 on:
-  issue_comment:
-    types: [created]
+  issues: # issue_comment: # c'est seulement pour quand un commentaire est créé...
+    types: [opened] # [created]
 
 jobs:
   message:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Issue créé"
+      - name: validation
+        run: echo "Issue créé correctement"
 

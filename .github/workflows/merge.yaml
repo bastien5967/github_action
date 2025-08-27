@@ -1,10 +1,15 @@
 name: merge.yaml
 
-on: pull_request
+on:
+  pull_request:
+    types:
+      - closed
 
 jobs:
   message:
     runs-on: ubuntu-latest
+    if: ${{github.event.pull_request.merge == true}}
     steps:
-      - run: echo "demande de fusion détécté... Je sais pas faire mieu"
+      - name: merged PR
+        run: echo "demande de fusion détécté... Je sais pas faire mieu"
 

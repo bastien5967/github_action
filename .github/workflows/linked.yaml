@@ -7,6 +7,7 @@ jobs:
       - run: echo "Hi, hello ! Does that work ?"
   job2:
     runs-on: ubuntu-latest
+    needs: [hello]
     steps:
-      - if: ${{job.hello}}
+      - name: job2
         run: echo "I'm only supposed to launch if the last one worked fine"
