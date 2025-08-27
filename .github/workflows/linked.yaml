@@ -1,0 +1,12 @@
+name: linked.yaml
+on: workflow_dispatch # only triggered manually
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hi, hello ! Does that work ?"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{job.hello}}
+        run: echo "I'm only supposed to launch if the last one worked fine"

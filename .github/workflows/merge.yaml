@@ -1,0 +1,10 @@
+name: merge.yaml
+
+on: pull_request
+
+jobs:
+  message:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "demande de fusion détécté... Je sais pas faire mieu"
+

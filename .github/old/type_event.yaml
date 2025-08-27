@@ -9,7 +9,7 @@ jobs:
       - name : "show variable"
         run: echo "The action is $GITHUB_ACTION "github.action # just to be sure...
       - name : "this is a push"
-        if: ${{github.action != 'push'}}
+        if: ${{github.action == 'push'}}
         run: echo "This is a push request" # works
       - name: "this is a pull"
         if: ${{github.action == 'pull_request' || github.action == 'pull_request_target' || github.action == 'pull_request_target'}}
